@@ -1,6 +1,7 @@
+from __future__ import annotations
+
 import os
 from enum import Enum
-
 
 class Loot(Enum):
     """ Enum describing all possible file types """

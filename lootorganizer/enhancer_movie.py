@@ -59,15 +59,15 @@ def _filter_subtitles(subtitles: List[str], movie_file: str, desired_languages: 
                     filtered[subtitle] = _get_subtitle_filename(movie_name, lang_code)
                     # only add the first occurrence of a language and ignore further subtitles
                     desired_languages.remove(lang)
-        else:
-            subtitle_filename = os.path.basename(subtitle)
-            subtitle_name = _remove_extension(subtitle_filename)
+            else:
+                subtitle_filename = os.path.basename(subtitle)
+                subtitle_name = _remove_extension(subtitle_filename)
 
-            movie_filename = os.path.basename(movie_file)
-            movie_name = _remove_extension(movie_filename)
+                movie_filename = os.path.basename(movie_file)
+                movie_name = _remove_extension(movie_filename)
 
-            if subtitle_name.lower() == movie_name.lower():
-                filtered[subtitle] = f"{movie_name}.srt"
+                if subtitle_name.lower() == movie_name.lower():
+                    filtered[subtitle] = f"{movie_name}.srt"
 
     return filtered
 

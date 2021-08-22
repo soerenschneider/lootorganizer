@@ -56,9 +56,9 @@ class Lootorganizer:
                 media_type = self.classifier.check_file(name)
                 Lootorganizer._attach(files_to_move, media_type, path)
 
-        for t in files_to_move.keys():
-            for obj in files_to_move[t]:
-                dest_dir = self.dest.get_dir(t)
+        for target in files_to_move.keys():
+            for obj in files_to_move[target]:
+                dest_dir = self.dest.get_dir(target)
                 if not os.path.isdir(dest_dir):
                     logging.info("Dir %s does not exist, trying to create it", dest_dir)
                     self.file_handler.mkdir(dest_dir)
@@ -90,7 +90,7 @@ class Lootorganizer:
         shows = self.dest.get_dir(Loot.show)
 
         video_files = dict()
-        for dirpath, dirnames, filenames in os.walk(shows):
+        for dirpath, _, filenames in os.walk(shows):
             for filename in filenames:
                 for ext in FileClassifier.video_extensions:
                     # do not try to move the same file over and over again

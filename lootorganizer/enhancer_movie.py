@@ -45,7 +45,7 @@ def handle_subtitles(content, file_handler) -> bool:
 
 
 def _filter_subtitles(subtitles: List[str], movie_file: str, desired_languages: List[str]) -> Dict[str, str]:
-    filtered = dict()
+    filtered = {}
     subtitles.sort(reverse=False)
     movie_name = _remove_extension(movie_file)
 

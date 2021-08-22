@@ -9,7 +9,7 @@ venv-test: venv
 	if [ -f requirements-test.txt ]; then venv/bin/pip3 install -r requirements-test.txt; fi
 
 lint:
-	venv/bin/pylint --output-format=text lootorganizer/
+	PYTHONPATH=lootorganizer venv/bin/pylint --output-format=text lootorganizer/
 
 .PHONY: venv
 venv:

@@ -20,8 +20,8 @@ class FileMoveImpl:
 
         files = os.listdir(path)
         if len(files):
-            for f in files:
-                fullpath = os.path.join(path, f)
+            for file in files:
+                fullpath = os.path.join(path, file)
                 if os.path.isdir(fullpath):
                     self.remove_empty_folders(fullpath)
 

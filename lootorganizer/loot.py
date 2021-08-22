@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 from enum import Enum
+from typing import Dict, List, Optional
 
 class Loot(Enum):
     """ Enum describing all possible file types """
@@ -56,9 +57,9 @@ class DirContent:
     def __init__(self, dirname: str, classifier):
         self._dirname = dirname
         self.classifier = classifier
-        self._stats = dict()
-        self._extensions = dict()
-        self._types = dict()
+        self._stats = {}
+        self._extensions = {}
+        self._types = {}
 
     @property
     def dirname(self) -> str:
@@ -82,12 +83,12 @@ class DirContent:
             extension = f".{extension}"
 
         if extension not in self._extensions:
-            return list()
+            return []
 
         return self._extensions[extension]
 
-    def add_file(self, dir: str, file_name: str) -> None:
-        path = os.path.join(dir, file_name)
+    def add_file(self, directory: str, file_name: str) -> None:
+        path = os.path.join(directory, file_name)
         mediatype = self.classifier.check_file(file_name)
         # add stats
         if mediatype not in self._stats:
@@ -96,13 +97,13 @@ class DirContent:
 
         # add type
         if mediatype not in self._types:
-            self._types[mediatype] = list()
+            self._types[mediatype] = []
         self._types[mediatype].append(path)
 
         # add extensions
         _, extension = self.classifier.get_extension(file_name)
         if extension not in self._extensions:
-            self._extensions[extension] = list()
+            self._extensions[extension] = []
         self._extensions[extension].append(path)
 
     def get_dominating_type(self) -> Optional[Loot]:

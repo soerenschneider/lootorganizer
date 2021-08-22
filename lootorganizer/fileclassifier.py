@@ -29,7 +29,7 @@ class FileClassifier:
         if file_ext in FileClassifier.video_extensions:
             guess_result = self.guesser.guess(filename)
             video_type = guess_result["type"]
-            if "episode" == video_type:
+            if video_type == "episode":
                 return Loot.show
             return Loot.movie
 

@@ -17,37 +17,37 @@ class LootFileProps:
         self._amount = 0
         self._size = 0
 
-    def check(self, filepath):
+    def check(self, filepath: str) -> None:
         self.amount += 1
         size_mib = os.path.getsize(filepath) >> 20
         self.size = self.size + size_mib
 
     @property
-    def amount(self):
+    def amount(self) -> int:
         return self._amount
 
     @amount.setter
-    def amount(self, value):
+    def amount(self, value: int) -> None:
         self._amount = value
 
     @property
-    def size(self):
+    def size(self) -> int:
         return self._size
 
     @size.setter
-    def size(self, size):
+    def size(self, size: int):
         self._size = size
 
-    def __gt__(self, other):
+    def __gt__(self, other: LootFileProps) -> bool:
         return (self.size, self.amount) > (other.size, other.amount)
 
-    def __eq__(self, other):
+    def __eq__(self, other: LootFileProps) -> bool:
         return (self.size, self.amount) == (other.size, other.amount)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"{self.amount}, {self.size}"
 
-    def __hash__(self):
+    def __hash__(self) -> str:
         return hash(f"{self.size}-{self.amount}")
 
 
@@ -60,22 +60,22 @@ class DirContent:
         self._types = dict()
 
     @property
-    def dirname(self):
+    def dirname(self) -> str:
         return self._dirname
 
     @property
-    def filetypes(self):
+    def filetypes(self) -> Dict[Loot, str]:
         return self._stats
 
     def contains_subtitles(self) -> bool:
         return ".srt" in self._extensions
 
-    def get_files_by_type(self, loot):
+    def get_files_by_type(self, loot: Loot) -> List[str]:
         if loot not in self._types:
             return []
         return self._types[loot]
 
-    def get_files_for_extension(self, extension: str):
+    def get_files_for_extension(self, extension: str) -> List[str]:
         extension = extension.lower()
         if not extension.startswith("."):
             extension = f".{extension}"
@@ -104,9 +104,7 @@ class DirContent:
             self._extensions[extension] = list()
         self._extensions[extension].append(path)
 
-
-
-    def get_dominating_type(self) -> Loot:
+    def get_dominating_type(self) -> Optional[Loot]:
         if not self.filetypes:
             return None
 

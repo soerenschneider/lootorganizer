@@ -20,23 +20,23 @@ class FileClassifier:
 
         extension = self.get_extension(filename)
         if not extension or len(extension) < 1:
-            return Loot.unknown
+            return Loot.Unknown
 
         file_ext = extension[1].lower()
         if file_ext in FileClassifier.ebook_extensions:
-            return Loot.ebook
+            return Loot.Ebook
 
         if file_ext in FileClassifier.video_extensions:
             guess_result = self.guesser.guess(filename)
             video_type = guess_result["type"]
             if video_type == "episode":
-                return Loot.show
-            return Loot.movie
+                return Loot.Show
+            return Loot.Movie
 
         if file_ext in FileClassifier.music_extensions:
-            return Loot.music
+            return Loot.Music
 
-        return Loot.unknown
+        return Loot.Unknown
 
     def get_extension(self, filename: str) -> Optional[Tuple]:
         """ Get the extension for the file. """

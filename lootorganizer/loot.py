@@ -7,11 +7,11 @@ from typing import Dict, List, Optional
 class Loot(Enum):
     """ Enum describing all possible file types """
 
-    movie = 1
-    show = 2
-    music = 3
-    ebook = 4
-    unknown = 5
+    Movie = 1
+    Show = 2
+    Music = 3
+    Ebook = 4
+    Unknown = 5
 
 
 class LootFileProps:
@@ -116,7 +116,7 @@ class DirContent:
         if by_size and len(by_size) > 0:
             return by_size[0]
 
-        return Loot.unknown
+        return Loot.Unknown
 
     def __repr__(self):
         return f"{self.dirname}: {self.filetypes}"

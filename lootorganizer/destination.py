@@ -17,9 +17,9 @@ class ImplicitDestination:
         if not isinstance(media_type, Loot):
             raise ValueError(f"Expected type Media, got: {type(media_type)}")
 
-        dest = media_type.name
+        dest = media_type.name.lower()
         # handle english plural correctly
-        if media_type in [Loot.movie, Loot.show, Loot.ebook]:
+        if media_type in [Loot.Movie, Loot.Show, Loot.Ebook]:
             dest += "s"
 
         path = os.path.join(self.target_dir, dest)

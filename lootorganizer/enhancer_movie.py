@@ -16,7 +16,7 @@ def handle_subtitles(content, file_handler) -> bool:
     if not subtitles:
         return False
 
-    movies = [movie for movie in content.get_files_by_type(Loot.movie) if not movie.lower().endswith(".srt")]
+    movies = [movie for movie in content.get_files_by_type(Loot.Movie) if not movie.lower().endswith(".srt")]
     if not movies or len(movies) > 1:
         return False
 
@@ -27,8 +27,8 @@ def handle_subtitles(content, file_handler) -> bool:
         old_path = os.path.join(content.dirname, old)
         new_path = os.path.join(content.dirname, new)
         # update content
-        content._types[Loot.movie].remove(old)
-        content._types[Loot.movie].append(new)
+        content._types[Loot.Movie].remove(old)
+        content._types[Loot.Movie].append(new)
         file_handler.move(old_path, new_path)
         # delete this processed subtitle from the list of subtitles
         subtitles.remove(old)
@@ -36,7 +36,7 @@ def handle_subtitles(content, file_handler) -> bool:
 
     for subtitle in subtitles:
         # update content
-        content._types[Loot.movie].remove(subtitle)
+        content._types[Loot.Movie].remove(subtitle)
         subtitle_path = os.path.join(content.dirname, subtitle)
         file_handler.delete_file(subtitle_path)
         performed_changes = True

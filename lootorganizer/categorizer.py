@@ -42,7 +42,7 @@ class Lootorganizer:
             return
 
         Lootorganizer._attach(dirs_to_move, dominating_content, root)
-        if Loot.movie == dominating_content:
+        if Loot.Movie == dominating_content:
             if dirstats.contains_subtitles():
                 handle_subtitles(dirstats, self.file_handler)
 
@@ -68,7 +68,7 @@ class Lootorganizer:
         self.tidy_shows()
 
     def tidy_movies(self) -> None:
-        movies = self.dest.get_dir(Loot.movie)
+        movies = self.dest.get_dir(Loot.Movie)
         for dirpath, dirnames, filenames in os.walk(movies):
             for filename in filenames:
                 for ext in FileClassifier.video_extensions:
@@ -87,7 +87,7 @@ class Lootorganizer:
                 self.file_handler.del_recursively(path)
 
     def tidy_shows(self) -> None:
-        shows = self.dest.get_dir(Loot.show)
+        shows = self.dest.get_dir(Loot.Show)
 
         video_files = {}
         for dirpath, _, filenames in os.walk(shows):

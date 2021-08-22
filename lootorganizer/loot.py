@@ -21,7 +21,7 @@ class LootFileProps:
     def check(self, filepath: str) -> None:
         self.amount += 1
         size_mib = os.path.getsize(filepath) >> 20
-        self._.size = self.size + size_mib
+        self._size += size_mib
 
     @property
     def amount(self) -> int:
@@ -40,16 +40,16 @@ class LootFileProps:
         self._size = size
 
     def __gt__(self, other: LootFileProps) -> bool:
-        return (self.size, self.amount) > (other.size, other.amount)
+        return (self._size, self.amount) > (other._size, other.amount)
 
     def __eq__(self, other: LootFileProps) -> bool:
-        return (self.size, self.amount) == (other.size, other.amount)
+        return (self._size, self.amount) == (other._size, other.amount)
 
     def __repr__(self) -> str:
-        return f"{self.amount}, {self.size}"
+        return f"{self.amount}, {self._size}"
 
     def __hash__(self) -> str:
-        return hash(f"{self.size}-{self.amount}")
+        return hash(f"{self._size}-{self.amount}")
 
 
 class DirContent:

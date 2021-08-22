@@ -26,7 +26,7 @@ class Lootorganizer:
     @staticmethod
     def _attach(dictionary: Dict, key: Loot, value: str) -> None:
         if key not in dictionary:
-            dictionary[key] = list()
+            dictionary[key] = []
         dictionary[key].append(value)
 
     def travel_dir(self, root: str, dirs_to_move: Dict) -> None:
@@ -41,13 +41,13 @@ class Lootorganizer:
         if not dominating_content:
             return
 
-        Lootorganizer._attach(dirs_to_move, dominating_content, dirname)
+        Lootorganizer._attach(dirs_to_move, dominating_content, root)
         if Loot.movie == dominating_content:
             if dirstats.contains_subtitles():
                 handle_subtitles(dirstats, self.file_handler)
 
     def examinate_target(self) -> None:
-        files_to_move = dict()
+        files_to_move = {}
         for name in os.listdir(self.incoming):
             path = os.path.join(self.incoming, name)
             if os.path.isdir(path):
@@ -89,7 +89,7 @@ class Lootorganizer:
     def tidy_shows(self) -> None:
         shows = self.dest.get_dir(Loot.show)
 
-        video_files = dict()
+        video_files = {}
         for dirpath, _, filenames in os.walk(shows):
             for filename in filenames:
                 for ext in FileClassifier.video_extensions:
@@ -99,10 +99,10 @@ class Lootorganizer:
                     if dirpath != shows and filename.endswith(ext):
                         path = os.path.join(dirpath, filename)
                         if dirpath not in video_files:
-                            video_files[dirpath] = list()
+                            video_files[dirpath] = []
                         video_files[dirpath].append(path)
 
-        delete_dirs = list()
+        delete_dirs = []
 
         for dirpath in video_files:
             subfolder = video_files[dirpath]
@@ -114,7 +114,7 @@ class Lootorganizer:
                 for path in subfolder:
                     self.file_handler(path, shows)
             else:
-                showmap = dict()
+                showmap = {}
                 title = None
                 same_title = True
                 for path in subfolder:
@@ -122,7 +122,7 @@ class Lootorganizer:
                     season = guess_result["season"]
 
                     if season not in showmap:
-                        showmap[season] = list()
+                        showmap[season] = []
                     showmap[season].append(path)
 
                     if not title:

@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/soerenschneider/lootorganizer/compare/v1.0.0...v1.0.1) (2021-08-22)
+
+
+### Bug Fixes
+
+* Handle relative dirs ([44cfa01](https://www.github.com/soerenschneider/lootorganizer/commit/44cfa01b3ee62c82e2642159ce9ff3c2789bafb4))
+
 ## 1.0.0 (2021-08-22)
 
 

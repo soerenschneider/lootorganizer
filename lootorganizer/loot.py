@@ -20,7 +20,7 @@ class LootFileProps:
     def check(self, filepath: str) -> None:
         self.amount += 1
         size_mib = os.path.getsize(filepath) >> 20
-        self.size = self.size + size_mib
+        self._.size = self.size + size_mib
 
     @property
     def amount(self) -> int:

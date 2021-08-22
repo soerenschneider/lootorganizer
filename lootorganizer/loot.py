@@ -89,6 +89,7 @@ class DirContent:
 
     def add_file(self, directory: str, file_name: str) -> None:
         path = os.path.join(directory, file_name)
+        path = os.path.abspath(path)
         mediatype = self.classifier.check_file(file_name)
         # add stats
         if mediatype not in self._stats:

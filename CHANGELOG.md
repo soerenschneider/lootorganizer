@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/soerenschneider/lootorganizer/compare/v1.0.1...v1.0.2) (2021-08-30)
+
+
+### Bug Fixes
+
+* Supply whole path for more accurate results from 'guessit' ([e0c46f4](https://www.github.com/soerenschneider/lootorganizer/commit/e0c46f4905c9596d988dce43a92ae15732f9d290))
+
 ### [1.0.1](https://www.github.com/soerenschneider/lootorganizer/compare/v1.0.0...v1.0.1) (2021-08-22)
 
 

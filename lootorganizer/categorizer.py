@@ -53,7 +53,7 @@ class Lootorganizer:
             if os.path.isdir(path):
                 self.travel_dir(path, files_to_move)
             else:
-                media_type = self.classifier.check_file(name)
+                media_type = self.classifier.check_file(name, path)
                 Lootorganizer._attach(files_to_move, media_type, path)
 
         for target in files_to_move.keys():

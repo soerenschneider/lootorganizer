@@ -15,7 +15,7 @@ class FileClassifier:
     def __init__(self):
         self.guesser = GuessImpl()
 
-    def check_file(self, filename) -> Loot:
+    def check_file(self, filename: str, path: str) -> Loot:
         """ Returns the detected media type for the given filename. """
 
         extension = self.get_extension(filename)
@@ -27,7 +27,7 @@ class FileClassifier:
             return Loot.Ebook
 
         if file_ext in FileClassifier.video_extensions:
-            guess_result = self.guesser.guess(filename)
+            guess_result = self.guesser.guess(path)
             video_type = guess_result["type"]
             if video_type == "episode":
                 return Loot.Show

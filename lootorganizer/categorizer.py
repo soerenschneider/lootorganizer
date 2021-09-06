@@ -112,7 +112,7 @@ class Lootorganizer:
             if len(non_subtitles) == 1:
                 delete_dirs.append(dirpath)
                 for path in subfolder:
-                    self.file_handler(path, shows)
+                    self.file_handler.move(path, shows)
             else:
                 showmap = {}
                 title = None

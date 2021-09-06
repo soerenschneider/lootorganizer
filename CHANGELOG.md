@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.0.3](https://www.github.com/soerenschneider/lootorganizer/compare/v1.0.2...v1.0.3) (2021-09-06)
+
+
+### Bug Fixes
+
+* Get absolute dir of target ([280e0da](https://www.github.com/soerenschneider/lootorganizer/commit/280e0da80089a31f8554704ee9a04251a5c381bb))
+* Missing method call ([54c1944](https://www.github.com/soerenschneider/lootorganizer/commit/54c1944f5d30194072e40e3f08b381b1da01a316))
+
 ### [1.0.2](https://www.github.com/soerenschneider/lootorganizer/compare/v1.0.1...v1.0.2) (2021-08-30)
 
 

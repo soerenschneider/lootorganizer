@@ -8,7 +8,7 @@ class ImplicitDestination:
         if not target_dir:
             raise ValueError("missing target_dir")
 
-        self.target_dir = target_dir
+        self.target_dir = os.path.abspath(target_dir)
 
     def get_dir(self, media_type: Loot) -> str:
         """ Get the destination for the given Media file type. """

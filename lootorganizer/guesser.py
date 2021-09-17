@@ -13,10 +13,10 @@ class GuessImpl:
         the first entry and throwaway the rest.
         """
         guess_result = guessit(filename)
-        if isinstance(guess_result["title"], list):
+        if "title" in guess_result and isinstance(guess_result["title"], list):
             guess_result["title"] = guess_result["title"][0]
 
-        if isinstance(guess_result["season"], list):
+        if "season" in guess_result and isinstance(guess_result["season"], list):
             guess_result["season"] = 0
 
         return guess_result

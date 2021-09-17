@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.4](https://www.github.com/soerenschneider/lootorganizer/compare/v1.0.3...v1.0.4) (2021-09-17)
+
+
+### Bug Fixes
+
+* Return list of seasons as 0 ([1d9b89d](https://www.github.com/soerenschneider/lootorganizer/commit/1d9b89db1511793db7eb018dbd6fdfb6825f609c))
+
 ### [1.0.3](https://www.github.com/soerenschneider/lootorganizer/compare/v1.0.2...v1.0.3) (2021-09-06)
 
 

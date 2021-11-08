@@ -1,4 +1,4 @@
-tests: 
+tests: venv
 	PYTHONPATH=lootorganizer venv/bin/python3 -m unittest lootorganizer/test_*.py
 
 .PHONY: integrationtests

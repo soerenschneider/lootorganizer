@@ -62,7 +62,10 @@ class Lootorganizer:
                 if not os.path.isdir(dest_dir):
                     logging.info("Dir %s does not exist, trying to create it", dest_dir)
                     self.file_handler.mkdir(dest_dir)
-                self.file_handler.move(obj, dest_dir)
+                try:
+                    self.file_handler.move(obj, dest_dir)
+                except Exception as err:
+                    logging.error("Encountered error while moving '%s' -> '%s': %s", obj, dest_dir, err)
 
         self.tidy_movies()
         self.tidy_shows()

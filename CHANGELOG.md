@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.5](https://www.github.com/soerenschneider/lootorganizer/compare/v1.0.4...v1.0.5) (2023-02-05)
+
+
+### Bug Fixes
+
+* handle error while moving ([5f761a7](https://www.github.com/soerenschneider/lootorganizer/commit/5f761a79ac71acb74311cf0e7b8571ded8ff5500))
+
 ### [1.0.4](https://www.github.com/soerenschneider/lootorganizer/compare/v1.0.3...v1.0.4) (2021-09-17)
 
 
